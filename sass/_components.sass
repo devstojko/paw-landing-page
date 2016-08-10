@@ -1,0 +1,526 @@
+.preloader
+  position: fixed
+  display: flex
+  justify-content: center
+  align-items: center
+  z-index: 1000
+  overflow: hidden
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-color: $primary
+
+.preloader-circle
+  width: 100px
+  height: 100px
+  display: block
+
+  &__outline
+    transform-origin: 50px 50px
+    animation-iteration-count: infinite
+    animation-timing-function: linear
+    animation-name: rotate
+
+    &--big
+      animation-duration: 2s
+      fill: $success
+
+    &--medium
+      animation-duration: 1s
+      fill: $purple
+
+    &--small
+      animation-duration: 2s
+      animation-direction: reverse
+      fill: $gold
+
+
+@keyframes rotate
+  100%
+    transform: rotate(360deg)
+
+
+
+
+// navigation
+.nav
+  position: fixed
+  top: 50px
+  left: 0
+  width: 100%
+  background-color: white
+  //opacity: 0
+  transform-origin: top center
+  transform: translate3d(0, 0, 0) scale(1, 0)
+  transition: 0.3s ease
+
+  &.is-active
+    //opacity: 1
+    transform: translate3d(0, 0, 0) scale(1)
+    z-index: 999
+
+  @include breakpoint(laptop)
+    transform: scale(1)
+    position: relative
+    background-color: transparent
+    width: auto
+    text-align: right
+    top: 0
+    opacity: 1
+    padding-top: 0
+    padding-bottom: 0
+
+
+// list
+.list
+  &__item
+    color: rgba($white, 0.87)
+    font-size: 2em
+
+// nav-link
+.nav-link
+  position: relative
+  display: inline-block
+  font-size: 1.6em
+  color: $dark-grey
+  text-transform: uppercase
+  padding: 15px
+
+  &::before
+    content: ''
+    position: absolute
+    bottom: 0
+    left: 0
+    opacity: 0
+    display: block
+    height: 5px
+    width: 100%
+    background-color: $text-blue
+    transform: scale(0)
+    transition: 0.3s ease
+
+  &:hover
+    &::before
+      opacity: 1
+      transform: scale(1)
+
+
+
+// nav-list
+.nav-list
+  padding: 15px 0
+  text-align: center
+  @include breakpoint(laptop)
+    padding: 0
+
+  &__item
+
+  @include breakpoint(laptop)
+    display: inline-block
+
+    &__item
+      display: inline-block
+      margin-bottom: 0
+      margin-right: 15px
+
+      &:last-child
+        margin-right: 0
+
+
+// burger
+.burger
+  border: none
+  overflow: hidden
+  background-color: transparent
+  height: 50px
+  padding: 10px
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+
+  &__line
+    display: block
+    width: 50px
+    height: 1px
+    background-color: $dark-grey
+    transition: transform 0.2s ease
+
+    &--top
+      transform-origin: left
+      transform: rotate(0)
+
+    &--middle
+      transform: translateX(0)
+
+    &--bottom
+      transform-origin: left
+      transform: rotate(0)
+
+  @include breakpoint(laptop)
+    display: none
+
+  &.is-active
+
+    .burger__line
+      transition: transform 0.2s ease
+
+      &--top
+        transform-origin: left
+        transform: rotate(35deg)
+
+      &--middle
+        transform: translateX(-150%)
+
+      &--bottom
+        transform-origin: left
+        transform: rotate(-35deg)
+
+// logo
+.logo
+  display: block
+  width: 40px
+  height: 40px
+  background: url('../img/logo.png') no-repeat center center
+  background-size: cover
+  font-size: 2em
+  color: $white
+
+
+// service-feature
+.service-feature
+  position: relative
+  overflow: hidden
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  width: 100%
+  height: 100%
+  padding-top: 50px
+  padding-bottom: 50px
+  background-repeat: no-repeat
+  background-position: center center
+  background-size: cover
+  transform: translate3d(0, 0, 0)
+
+  &--cat
+    background-image: url('../img/service-feature_1.jpg')
+
+  &--snail
+    background-image: url('../img/service-feature_2.jpg')
+
+  &--dog
+    background-image: url('../img/service-feature_3.jpg')
+
+  &--rabbit
+    background-image: url('../img/service-feature_4.jpg')
+
+  &__icon
+    margin-bottom: 25px
+
+  &__title
+    font-size: 2em
+    text-transform: uppercase
+    color: $white
+    margin-bottom: 25px
+
+  &__cta
+    display: inline-block
+    font-size: 2em
+    color: $dark-grey
+    text-transform: uppercase
+    padding: 10px 25px
+    background-color: $cream
+
+  @include breakpoint(laptop)
+    padding: 0
+    min-height: 750px
+
+    &::before
+      content: ''
+      position: absolute
+      top:0
+      right: 0
+      height: 100%
+      width: 100%
+      background-color: rgba($dark-grey, 0.8)
+      transform: translate3d(0, 0, 0)
+      transition: 0.3s ease-out
+
+    &:hover
+      &::before
+        transform: translate3d(0, -100%, 0)
+
+    &__title
+      font-size: 3em
+
+
+// price-feature
+.pricing-plan
+  position: relative
+  background-color: $white
+  margin: 15px auto
+  padding: 25px 25px 40px
+  max-width: 300px
+  border-top: 5px solid $primary
+
+  &::after
+    content: ''
+    position: absolute
+    top: 0
+    right: 0
+    width: 0
+    height: 0
+    border-left: 10px solid transparent
+    border-right: 0 solid transparent
+    border-top: 10px solid $primary
+
+  &__plan
+    font-size: 3em
+    text-transform: uppercase
+    color: $dark-grey
+
+  &__price
+    display: inline-block
+    font-size: 1.4em
+    font-weight: 700
+    background-color: $primary
+    color: $white
+    padding: 5px 15px
+    text-align: center
+
+  &__list
+    margin-top: 40px
+    margin-bottom: 40px
+
+    li
+      position: relative
+      font-size: 1.4em
+      color: rgba($dark-grey, 0.87)
+      margin-bottom: 15px
+      padding-left: 15px
+
+      &::before
+        content: ''
+        position: absolute
+        top: 40%
+        left: 0
+        border-radius: 50%
+        width: 5px
+        height: 5px
+        background-color: $primary
+
+.btn
+  position: relative
+  display: inline-block
+  color: $white
+  font-size: 1.4em
+  text-transform: uppercase
+  text-align: center
+  border: none
+  border-bottom-width: 5px
+  border-bottom-style: solid
+  border-radius: 5px
+  padding: 15px 50px 10px
+  transition: 0.3s ease
+
+  @include breakpoint(laptop)
+    font-size: 1.6em
+
+  &--success
+    @include btn($success)
+
+  &--warning
+    @include btn($orange)
+
+  &--info
+    @include btn($info)
+
+// media
+.media
+  display: flex
+  flex-direction: column
+  margin-bottom: 50px
+
+  @include breakpoint(phablet)
+    flex-direction: row
+
+  &__icon
+    display: inline-block
+    max-width: 50px
+    height: 50px
+
+    @include breakpoint(laptop)
+      max-width: 100%
+      height: 70px
+
+  &__content
+    margin-top: 15px
+
+    @include breakpoint(phablet)
+      margin-top: 0
+      margin-left: 25px
+
+  &__text
+    font-size: 1.8em
+    font-style: italic
+    font-weight: 100
+    margin-bottom: 15px
+
+  &__title
+    font-size: 2.2em
+    text-transform: uppercase
+
+  &__subtitle
+    font-size: 1.6em
+    color: $gold
+
+// thumbnail
+.thumbnail
+  padding: 15px
+  text-align: center
+  margin-bottom: 50px
+
+  &__icon
+    width: 100px
+    height: 100px
+    max-width: 100%
+    margin-bottom: 25px
+
+  &__title
+    font-size: 2em
+    text-transform: uppercase
+
+  &__subtitle
+    font-size: 1.4em
+    color: $text-blue
+
+  &__text
+    margin-top: 25px
+    margin-bottom: 25px
+    font-size: 1.6em
+
+
+// inline-list
+.inline-list
+
+  &__item
+    display: inline-block
+    margin-right: 5px
+
+    &:last-child
+      margin-right: 0
+
+// social-icon
+.social-icon
+  display: block
+  width: 32px
+  height: 32px
+  border-radius: 50%
+  background-color: $success
+  color: white
+  transition: all 300ms ease
+  &:hover
+    color: $dark-grey
+  .fa
+    line-height: 32px
+
+// social-link
+.social-link
+  color: white
+  font-size: 1.4em
+  margin-bottom: 5px
+
+  @include breakpoint(laptop)
+    margin-bottom: 0
+
+  &:hover
+    color: $info
+
+
+// work-item
+.work-item
+  display: flex
+  flex-direction: column
+  text-align: center
+  margin: 0 auto 50px
+  align-self: center
+  max-width: 200px
+
+  &__img
+    //display: inline-block
+    margin-bottom: 15px
+
+  &__title
+    display: block
+    font-size: 1.8em
+    text-transform: uppercase
+    text-align: center
+    color: $dark-grey
+
+
+// skillbar
+.skillbar
+  position: relative
+  display: block
+  width: 100%
+  height: 55px
+  margin-bottom: 50px
+  background-color: $success
+  border-top: 5px solid darken($success, 10%)
+  border-radius: 5px
+
+  &__icon
+    position: absolute
+    left: 0
+    top: 0
+    display: inline-block
+    width: 50px
+    height: 50px
+    .fa
+      color: white
+      line-height: 50px
+      margin-left: 14px
+
+
+  &__progress
+    position: absolute
+    display: block
+    border-radius: 4px
+    overflow: hidden
+    top: 20px
+    left: 60px
+    right: 60px
+    height: 10px
+    background-color: rgba(white, 0.4)
+
+    &-count
+      display: block
+      background-color: white
+      height: 10px
+      border-radius: 4px
+
+  &__percentage
+    position: absolute
+    display: block
+    color: white
+    font-weight: bold
+    top: 0
+    right: 10px
+    height: 10px
+    line-height: 50px
+    font-size: 1.4em
+    text-align: center
+
+    &--70
+      width: 70%
+
+    &--75
+      width: 75%
+
+    &--85
+      width: 85%
+
+    &--90
+      width: 90%

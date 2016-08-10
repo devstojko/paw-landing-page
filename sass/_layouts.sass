@@ -1,0 +1,225 @@
+// row
+.row
+  box-sizing: border-box
+  display: flex
+  flex-wrap: wrap
+  flex-direction: row
+  margin-left: -15px
+  margin-right: -15px
+
+// columns
+.col-2,
+.col-3,
+.col-4,
+.col-6,
+.col-12
+  padding-left: 15px
+  padding-right: 15px
+  box-sizing: border-box
+  flex-basis: 100%
+  max-width: 100%
+
+@include breakpoint(phablet)
+  .col-4
+    flex-basis: 50%
+    max-width: 50%
+
+@include breakpoint(laptop)
+
+  .col-3
+    flex-basis: 25%
+    max-width: 25%
+
+  .col-4
+    flex-basis: 33.33333%
+    max-width: 33.33333%
+  .col-6
+    flex-basis: 50%
+    max-width: 50%
+
+// container
+.container
+  width: 90%
+  max-width: 1170px
+  margin: 0 auto
+
+// text
+.text
+  font-size: 1.6em
+
+  &--white
+    color: $white
+
+  &--italic
+    font-style: italic
+
+// section
+.section
+  padding-top: 50px
+  padding-bottom: 50px
+
+  &__title
+    position: relative
+    font-size: 2.6em
+    text-transform: uppercase
+    text-align: center
+    margin-bottom: 25px
+    color: $dark-grey
+
+    @include breakpoint(laptop)
+      font-size: 4em
+
+    &::after
+      content: ''
+      position: absolute
+      bottom: 0
+      right: 50%
+      margin-right: -50px
+      display: block
+      width: 100px
+      height: 5px
+      background: rgba(black, 0.2)
+
+  &__subtitle
+    font-size: 1.6em
+    text-align: center
+    color: $dark-grey
+    margin-bottom: 35px
+
+    @include breakpoint(laptop)
+      font-size: 2em
+      margin: 0 15%
+      margin-bottom: 70px
+
+    &--white
+      color: rgba($white, 0.87)
+
+  @include breakpoint(laptop)
+    padding-top: 100px
+    padding-bottom: 100px
+
+// header
+.header
+  position: fixed
+  z-index: 998
+  width: 100%
+  background-color: white
+  transform: translate3d(0, 0, 0)
+
+  &__container
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 90%
+    max-width: 1140px
+    margin: 0 auto
+
+
+// skillbar-wrapper
+.skillbar-wrapper
+  display: block
+  width: 100%
+  max-width: 640px
+  margin: 0 auto
+
+// hero
+.hero
+  display: flex
+  justify-content: center
+  align-items: center
+  background: url('../img/hero-bck.svg') no-repeat center center
+  background-size: cover
+  height: 100vh
+  text-align: center
+  padding-top: 50px
+
+  &__title
+    color: white
+    text-align: center
+    font-size: 3em
+    margin-bottom: 25px
+
+    @include breakpoint(laptop)
+      padding: 0 10%
+      font-size: 5em
+
+  &__content
+    display: block
+    width: 90%
+    max-width: 1140px
+    margin:  0 auto
+
+// services
+.services
+  background-color: $teal
+  color: white
+
+// team
+.team
+  background-color: $grey
+  color: $dark-grey
+
+// prices
+.prices
+  background: url('../img/prices-bck.jpg') no-repeat center center
+  background-size: cover
+
+
+// skills
+.skills
+ background-color: $purple
+
+
+// portfolio
+.portfolio
+  background-color: $gold
+  color: $dark-grey
+
+
+// testimonials
+.testimonials
+  background-color: $rose
+  color: white
+
+
+// contact
+.contact
+  background-color: $blue
+  color: white
+  text-align: center
+
+// contact form
+@include breakpoint(laptop)
+  .contact-form
+    max-width: 960px
+    margin: 0 auto
+
+// input fields
+.form-control
+  display: block
+  width: 100%
+  margin-bottom: 25px
+  padding: 15px 25px
+  font-size: 1.8em
+  color: white
+  background-color: darken($blue, 10%)
+  border: none
+  border-radius: 5px
+
+  &--textarea
+    min-height: 250px
+
+
+// footer
+.footer
+  background-color: darken($blue, 5%)
+  padding: 15px 0
+
+  &__content
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: space-between
+
+    @include breakpoint(phablet)
+      flex-direction: row

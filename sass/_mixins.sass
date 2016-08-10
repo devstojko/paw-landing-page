@@ -1,0 +1,27 @@
+// breakpoints
+
+@mixin breakpoint($point)
+  @if $point == desktop
+    @media (min-width: 75em)
+      @content
+
+  @else if $point == laptop
+    @media (min-width: 63em)
+      @content
+
+  @else if $point == tablet
+    @media (min-width: 48em)
+      @content
+
+  @else if $point == phablet
+    @media (min-width: 34em)
+      @content
+
+
+@mixin btn($color)
+  background-color: $color
+  border-color: darken($color, 5%)
+
+  &:hover
+    background-color: darken($color, 5%)
+    border-color: darken($color, 10%)
